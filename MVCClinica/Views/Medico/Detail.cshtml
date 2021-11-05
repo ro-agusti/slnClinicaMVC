@@ -1,0 +1,36 @@
+﻿@model MVCClinica.Models.Medico
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Medico detail</legend>
+        <div>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </div>
+        <div>
+            @Html.DisplayFor(model => model.Nombre)
+        </div>
+        <div>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </div>
+        <div>
+            @Html.DisplayFor(model => model.Matricula)
+        </div>
+        <div>
+            @Html.DisplayNameFor(model => model.Especialidad)
+        </div>
+        <div>
+            @Html.DisplayFor(model => model.Especialidad)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Back to List", "Index", "Medico")
+    </p>
+</body>
+</html>

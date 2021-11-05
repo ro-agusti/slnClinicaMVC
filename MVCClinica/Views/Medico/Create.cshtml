@@ -1,0 +1,36 @@
+﻿@model MVCClinica.Models.Medico
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    @using (Html.BeginForm("Create", "Medico", FormMethod.Post))
+    {
+        <div>
+            @Html.LabelFor(model => model.Nombre)
+            @Html.EditorFor(model => model.Nombre)
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Matricula)
+            @Html.EditorFor(model => model.Matricula)
+            @Html.ValidationMessageFor(model => model.Matricula)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Especialidad)
+            @Html.EditorFor(model => model.Especialidad)
+            @Html.ValidationMessageFor(model => model.Especialidad)
+        </div>
+        <p>
+            <input type="submit" value="Create"/>
+        </p>
+    }
+<p>@Html.ActionLink("Back to List", "Index", "Medico")</p>
+</body>
+</html>
