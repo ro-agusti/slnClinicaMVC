@@ -18,7 +18,6 @@ namespace MVCClinica.Controllers
         // GET: Medico
         public ActionResult Index()
         {
-            //var medicos = AdmMedico.Listar();
             return View("Index", AdmMedico.Listar());
         }
 
@@ -72,15 +71,8 @@ namespace MVCClinica.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Medico medico = AdmMedico.TraerPorId(id);
-            if (medico != null)
-            {
-                AdmMedico.Eliminar(medico);
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                return HttpNotFound();
-            }
+            AdmMedico.Eliminar(medico);
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int id)
@@ -99,7 +91,6 @@ namespace MVCClinica.Controllers
         [HttpPost]
         public ActionResult Edit(Medico medico)
         {
-            
             AdmMedico.Editar(medico);
             return RedirectToAction("Index");
         }

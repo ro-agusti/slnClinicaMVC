@@ -27,17 +27,21 @@ namespace MVCClinica.Admin
 
         public static Medico TraerPorId(int id)
         {
-            return context.Medicos.Find(id);
+            Medico medico = context.Medicos.Find(id);
+            context.Entry(medico).State = EntityState.Detached;
+            return medico;
         }
 
         public static void Eliminar(Medico medico)
         {
+            if (!context.Medicos.Local.Contains(medico)) { context.Medicos.Attach(medico); }
             context.Medicos.Remove(medico);
             context.SaveChanges();
         }
 
         public static void Editar(Medico medico)
         {
+            context.Medicos.Attach(medico);
             context.Entry(medico).State = EntityState.Modified;
             context.SaveChanges();
         }
