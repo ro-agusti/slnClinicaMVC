@@ -97,11 +97,10 @@ namespace MVCClinica.Controllers
 
         public ActionResult DetailBySpeciality(string especialidad)
         {
-            //var medicos = (
-            //    from m in context.Medicos
-            //    where m.Especialidad == especialidad
-            //    select m
-            //    ).ToList();
+            if (especialidad == "Todas")
+            {
+                return RedirectToAction("Index");
+            }
             return View("Index", AdmMedico.TraerPorEspecialidad(especialidad));
         }
     }

@@ -11,6 +11,11 @@
 <body>
     <p>@Html.ActionLink("Create New", "Create", "Medico") </p>
 
+    @using (Html.BeginForm("DetailBySpeciality", "Medico", FormMethod.Get))
+            {
+                @Html.TextBox("especialidad", "Todas")
+        <input type="submit" value="Get"/>
+            }
     <table>
         <tr>
             <th>@Html.DisplayNameFor(model => model.Nombre)</th>
